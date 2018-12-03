@@ -23,7 +23,7 @@ class TestDay1(TestCase):
 
 class TestDay2(TestCase):
 
-    def test_ex_1(self):
+    def test_part_1(self):
 
         test_data = [
             'abcdef',
@@ -37,6 +37,21 @@ class TestDay2(TestCase):
         
         self.assertEqual(week1.day2(test_data), 12)
 
+    def test_part_2(self):
+
+        test_data = [
+            'abcde',
+            'fghij',
+            'klmno',
+            'pqrst',
+            'fguij',
+            'axcye',
+            'wvxyz'
+        ]
+
+        self.assertEqual(week1.day2_part2(test_data), 'fgij')
+
+        pass
 
 if __name__ == '__main__':
     main()
