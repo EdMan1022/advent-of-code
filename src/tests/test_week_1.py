@@ -51,7 +51,20 @@ class TestDay2(TestCase):
 
         self.assertEqual(week1.day2_part2(test_data), 'fgij')
 
-        pass
+
+class TestDay3(TestCase):
+
+    def test_part_1(self):
+
+        test_data = [
+            "#1 @ 1, 3: 4x4",
+            "#2 @ 3,1: 4x4",
+            "#3 @ 5,5: 2x2"
+        ]
+
+        self.assertEqual(week1.day3_part1(test_data), 4)
+
+
 
 if __name__ == '__main__':
     main()
