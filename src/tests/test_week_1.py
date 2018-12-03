@@ -54,10 +54,17 @@ class TestDay2(TestCase):
 
 class TestDay3(TestCase):
 
+    def setUp(self):
+        self.test_data = [
+            "#1 @ 1,3: 4x4",
+            "#2 @ 3,1: 4x4",
+            "#3 @ 5,5: 2x2"
+        ]
+
 
     def test_parser(self):
 
-        test_data = ["#1 @ 1,3: 4x4"]
+        test_data = [self.test_data[0]]
         self.assertListEqual(
             week1.day3.day3_parser(test_data),
             [
@@ -73,14 +80,10 @@ class TestDay3(TestCase):
 
 
     def test_part_1(self):
+        self.assertEqual(week1.day3_part1(self.test_data), 4)
 
-        test_data = [
-            "#1 @ 1,3: 4x4",
-            "#2 @ 3,1: 4x4",
-            "#3 @ 5,5: 2x2"
-        ]
-
-        self.assertEqual(week1.day3_part1(test_data), 4)
+    def test_part_2(self):
+        self.assertEqual(week1.day3_part2(self.test_data), '3')
 
 
 

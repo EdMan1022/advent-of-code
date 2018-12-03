@@ -42,6 +42,15 @@ def find_overlap(data, total_n=1000):
 
         overlap_total += sub_claim[sub_claim == 2].sum() / 2
 
+    return overlap_total, total_array
 
 
-    return overlap_total
+def find_no_overlap(parsed_data, total_data):
+
+    for claim in parsed_data:
+
+        if (total_data[
+            claim['top_start']: (claim['top_start'] + claim['height']),
+            claim['left_start']: (claim['left_start'] + claim['width'])
+        ] == 1).all():
+            return claim['id']

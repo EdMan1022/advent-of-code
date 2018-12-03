@@ -3,7 +3,7 @@ import os
 
 from src.main.utils import load_data, load_int_data
 
-from src.main.week1.day3 import day3_parser, find_overlap
+from src.main.week1.day3 import day3_parser, find_overlap, find_no_overlap
 
 
 def day0(data):
@@ -75,7 +75,15 @@ def day2_part2(data):
 def day3_part1(data):
 
     parsed_data = day3_parser(data)
-    return find_overlap(parsed_data)
+    return find_overlap(parsed_data)[0]
+
+
+def day3_part2(data):
+
+        parsed_data = day3_parser(data)
+        total, total_data = find_overlap(parsed_data)
+        output = find_no_overlap(parsed_data, total_data)
+        return output
 
 
 if __name__ == '__main__':
@@ -90,6 +98,6 @@ if __name__ == '__main__':
         )
     )
 
-    print(day3_part1(
+    print(day3_part2(
         load_data('{}/inputs/day3.txt'.format(root))
     ))
