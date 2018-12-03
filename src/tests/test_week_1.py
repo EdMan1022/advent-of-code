@@ -54,10 +54,28 @@ class TestDay2(TestCase):
 
 class TestDay3(TestCase):
 
+
+    def test_parser(self):
+
+        test_data = ["#1 @ 1,3: 4x4"]
+        self.assertListEqual(
+            week1.day3.day3_parser(test_data),
+            [
+                {
+                    "id": "1",
+                    "left_start": 1,
+                    "top_start": 3,
+                    "width": 4,
+                    "height": 4
+                }
+            ]
+        )
+
+
     def test_part_1(self):
 
         test_data = [
-            "#1 @ 1, 3: 4x4",
+            "#1 @ 1,3: 4x4",
             "#2 @ 3,1: 4x4",
             "#3 @ 5,5: 2x2"
         ]
