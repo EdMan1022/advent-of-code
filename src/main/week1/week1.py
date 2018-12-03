@@ -1,7 +1,7 @@
 from itertools import cycle, starmap, compress
 import os
 
-from .utils import load_data, load_int_data
+from src.main.utils import load_data, load_int_data
 
 
 def day0(data):
@@ -19,8 +19,9 @@ def day1(data):
 
         if _sum in cached_sums:
             return _sum
-    
+
         cached_sums.add(_sum)
+
 
 def day2(data):
 
@@ -39,11 +40,11 @@ def day2(data):
         char_set = set(id_string)
         for character in char_set:
             sub_counts[id_string.count(character)] = True
-        
+
         for key, value in sub_counts.items():
             if value:
                 counts[key] += 1
-    
+
     return counts[2] * counts[3]
 
 
@@ -74,12 +75,13 @@ if __name__ == '__main__':
     root = os.path.dirname(
         os.path.dirname(
             os.path.dirname(
-                os.path.abspath(__file__)
+                os.path.dirname(
+                    os.path.abspath(__file__)
+                )
             )
         )
     )
 
     print(day2_part2(
         load_data('{}/inputs/day2.txt'.format(root))
-        ))
-
+    ))
