@@ -1,6 +1,8 @@
 from itertools import cycle, starmap, compress
 import os
 
+from .utils import load_data, load_int_data
+
 
 def day0(data):
     return sum(data)
@@ -44,8 +46,10 @@ def day2(data):
     
     return counts[2] * counts[3]
 
+
 def _compare_func(a, b):
     return a == b
+
 
 def _compare_string(a_string, b_string):
     trues = starmap(_compare_func, zip(a_string, b_string))
@@ -63,16 +67,6 @@ def day2_part2(data):
             compare_output = _compare_string(a_id, b_id)
             if len(compare_output) >= compare_length - 1:
                 return ''.join(compare_output)
-
-
-def load_int_data(filepath):
-    data = load_data(filepath)
-    return [float(_) for _ in data]
-
-def load_data(filepath):
-    with open(filepath, 'r') as file:
-        data = file.readlines()
-    return data
 
 
 if __name__ == '__main__':
